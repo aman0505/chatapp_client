@@ -1,6 +1,7 @@
 import React, { memo, } from 'react'
 import { Link } from "../style/StyleComponents"
 import { Avatar, Stack, Typography, Box } from '@mui/material'
+import Avtarcard from './Avtarcard'
 const Chatitem = ({
   sameSender,
   _id,
@@ -10,9 +11,12 @@ const Chatitem = ({
   index = 0,
   handleDeleteChat,
   newmessagesAlert,
-  data
+  avatar
 }) => {
+
+
   console.log(handleDeleteChat)
+  
   return (
     <Link sx={{
       padding: "0"
@@ -22,14 +26,21 @@ const Chatitem = ({
       }}    >
       <div style={{
         display: "flex",
-        gap: "1rem",
+
         alignItems: "center",
         padding: "1rem",
         backgroundColor: sameSender ? "black" : "unset",
         color: sameSender ? "wheat" : "unset",
-        justifyContent: "space-between",
-        position: "relative"
+        justifyContent: "left",
+        position: "relative",
+        overflow:"hidden"
+        
       }}>
+
+        <Avtarcard avatar={avatar}/>
+
+
+
         <Stack>
           <Typography>
             {name}
@@ -60,4 +71,4 @@ const Chatitem = ({
   )
 }
 
-export default memo(Chatitem)
+export default Chatitem

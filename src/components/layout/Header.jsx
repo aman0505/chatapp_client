@@ -31,7 +31,7 @@ const Header = () => {
     console.log("mobile")
   }
   const opeansearchdialog = () => {
-    issearch=true
+    issearch = true
     console.log("opeansearchdialog")
   }
   const opennewgroup = () => {

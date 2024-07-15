@@ -5,6 +5,7 @@ import Title from '../shared/Title'
 import { Grid } from '@mui/material'
 import ChatList from '../specific/ChatList'
 import { samplechat } from '../../constant/sampledata'
+import Profile from '../specific/Profile'
 
 
 
@@ -15,15 +16,15 @@ const Applayout = () => (WrapperComponent) => {
 
 
     return (props) => {
+
         const chati = useParams;
         const chatId = chati().chatid
+
         const handleDeleteChat = (e, _id, groupChat) => {
-            e.preventDefault()
             console.log("delete chat ", _id, groupChat)
 
         }
 
-        console.log(handleDeleteChat)
         return (
 
             <>
@@ -31,13 +32,15 @@ const Applayout = () => (WrapperComponent) => {
                 <Header />
                 <Grid container height={"calc(100vh - 4rem)"} >
                     <Grid item sm={4} md={3} sx={{
+                       
                         display: {
                             xs: "none",
                             sm: "block"
                         }
-                    }} height={"100%"} >
+                    }} height={"100%"}   >
 
-                        <ChatList key={"1"}
+                        <ChatList
+                            key={chatId}
                             handleDeleteChat={handleDeleteChat}
                             chatId={chatId}
                             chats={samplechat}
@@ -52,7 +55,7 @@ const Applayout = () => (WrapperComponent) => {
                             }
                         />
                     </Grid>
-                    <Grid item xs={12} sm={8} md={5} lg={6} height={"100%"} bgcolor={"primary.main"}>
+                    <Grid item xs={12} sm={8} md={5} lg={6} height={"100%"}>
                         <WrapperComponent {...props} />
                     </Grid>
                     <Grid item md={4} lg={3} height={"100%"} sx={{
@@ -60,11 +63,11 @@ const Applayout = () => (WrapperComponent) => {
                             xs: "none",
                             md: "block",
                             padding: "2rem",
-                            bgcolor: "black"
+                            backgroundColor: "black"
 
                         }
                     }}  >
-                        thirdf
+                        <Profile />
                     </Grid>
 
                 </Grid>

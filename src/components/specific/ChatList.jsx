@@ -1,21 +1,22 @@
 import React, { memo } from 'react'
 import { Stack } from '@mui/material'
 import Chatitem from '../shared/Chatitem'
-const ChatList = ({ w = "100%",
-    chats = [],
-    chatId,
-    onlineUsers = [],
-    newMessageAlert = [],
-    handleDeleteChat
-}) => {
+const ChatList = (
+    { w = "100%",
+        chats = [],
+        chatId,
+        onlineUsers = [],
+        newMessageAlert = [],
+        handleDeleteChat
+    }) => {
 
     console.log(handleDeleteChat)
     return (
 
-        <Stack width={w} direction={"column"}>
+        <Stack width={w} direction={"column"}  overflow={"auto"} height={"100%"} >
             {
                 chats?.map((data, index) => {
-                    const { avtar, _id, name, groupchat, members } = data
+                    const { avatar, _id, name, groupchat, members } = data
 
 
                     const newmessagesAlert = newMessageAlert.find(({ chatId }) => chatId === _id)
@@ -24,7 +25,7 @@ const ChatList = ({ w = "100%",
 
                     return <Chatitem
                         index={index}
-                        avtar={avtar}
+                        avatar={avatar}
                         key={_id}
                         newmessagesAlert={newmessagesAlert}
                         sameSender={chatId === _id}
@@ -41,6 +42,5 @@ const ChatList = ({ w = "100%",
     )
 }
 
-export default memo(ChatList)
-
+export default ChatList
 

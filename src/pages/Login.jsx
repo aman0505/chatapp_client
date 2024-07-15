@@ -12,6 +12,7 @@ import {
 import { CameraAlt } from "@mui/icons-material"
 import { VisuallyHiddenInput } from '../components/style/StyleComponents'
 import { useInputValidation, isValidUsername, useFileHandler } from "6pp"
+import { transformImage } from '../lib/Features'
 
 const Login = () => {
     const [islogin, setIslogin] = useState(true)
