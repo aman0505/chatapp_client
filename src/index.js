@@ -1,23 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {Provider} from "react-redux"
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CssBaseline } from "@mui/material"
 import { HelmetProvider } from "react-helmet-async"
+import store from './redux/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <HelmetProvider>
       <CssBaseline />
       <div onContextMenu={((e)=>{
-        // e.preventDefault()
+        e.preventDefault()
       })}>
       <App />
 
       </div>
     </HelmetProvider>
-
+    </Provider>
   </React.StrictMode> 
 );
 
